@@ -2,8 +2,10 @@ package com.jwtproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.jwtproject.config.RsaKeyProperties;
 
@@ -14,6 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableConfigurationProperties(RsaKeyProperties.class)
+@EnableMongoRepositories
 @SpringBootApplication
 //@EnableSwagger2
 public class JwtprojectApplication {
@@ -34,5 +37,6 @@ public class JwtprojectApplication {
 	          .paths(PathSelectors.any())                          
 	          .build();                                           
 	    }
+	  //https://github.com/akashhrawat80/jwtproject
 
 }

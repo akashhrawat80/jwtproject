@@ -28,13 +28,14 @@ public class MySecurityConfig {
 	MySecurityConfig(RsaKeyProperties r){
 		this.rsaKeys=r;
 	}
+	
 
 	@SuppressWarnings("deprecation")
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 	    return http
 	            .csrf(csrf -> csrf.disable())
-	            .authorizeRequests( auth -> auth
+	            .authorizeHttpRequests( auth -> auth
 	                    .anyRequest().authenticated()
 	            )
 	            .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
